@@ -1,0 +1,3 @@
+[submodule "kuma_utils"]
+	path = kuma_utils
+	url = https://github.com/analokmaus/kuma_utils.git
