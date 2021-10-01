@@ -29,7 +29,7 @@ class DenseLayer(nn.Module):
             growth_rate,
             kernel_size=kernel_size,
             stride=1,
-            padding='same',
+            padding=kernel_size//2,
             dilation=1)
 
     def forward(self, x):
@@ -53,8 +53,8 @@ class DenseBlock(nn.ModuleDict):
             self.add_module(f'denselayer{i}', 
                 DenseLayer(in_channels + i * growth_rate, 
                            growth_rate, 
-                           kernel_size, 
-                           bottleneck_size))
+                           bottleneck_size,
+                           kernel_size))
 
     def forward(self, x):
         layer_outputs = [x]
