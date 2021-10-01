@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     N_CPU, N_RAM, N_GPU, N_GRAM = HW_CFG[opt.hardware]
     if opt.cache:
-        LOGGER(f'Maximum cache size is set to {N_RAM-4} GB')
+        LOGGER(f'Maximum cache size is set to {N_RAM//2} GB')
 
     root_dir = Path(opt.root_dir).expanduser()
     train = pd.read_csv(root_dir/'training_labels.csv')
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     train.to_csv(export_dir/'train.csv', index=False)
     if opt.cache:
         train_cache = load_signal_cache(
-            train['path'].values, N_RAM-4, n_jobs=N_CPU)
+            train['path'].values, N_RAM//2, n_jobs=N_CPU)
         with open(export_dir/'train_cache.pickle', 'wb') as f:
             pickle.dump(train_cache, f)
         del train_cache; gc.collect
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     test.to_csv(export_dir/'test.csv', index=False)
     if opt.cache:
         test_cache = load_signal_cache(
-            test['path'].values, N_RAM-4, n_jobs=N_CPU)
+            test['path'].values, N_RAM//2, n_jobs=N_CPU)
         with open(export_dir/'test_cache.pickle', 'wb') as f:
             pickle.dump(test_cache, f)
         del test_cache; gc.collect
