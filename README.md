@@ -87,7 +87,13 @@ Outputs and options are the same as `train.py`.
 python train_pseudo.py --config {experiment class}
 ```
 
-## Experiments
+### 6. Train stacking model
+Once you trained all 20 models listed below, you are ready to train the stacking model.  
+You will need to run all the cells in `g2net-submission.ipynb`.  
+A submission file `results/submission.csv` will be generated.
+
+
+## Experiment list
 
 | #  | Experiment | Dependency      | Frontend | Backend         | Input size | CV      | Public LB | Private LB |
 | -- | ---------- | --------------- | -------- | --------------- | ---------- | ------- | --------- | ---------- |

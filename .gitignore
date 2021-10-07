@@ -14,9 +14,7 @@ catboost_info/
 input/
 checkpoints/
 wavelets_pytorch/
-results/**/*.npy
-results/**/*.pt
-results/**/*.pth
+results/
 requirements/
 kaggle/
 logs/
@@ -27,5 +25,4 @@ eda.ipynb
 parallel_qsub.py
 qsub.py
 *.job*
-*.ipynb
 submission.csv
